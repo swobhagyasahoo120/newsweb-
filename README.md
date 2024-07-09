@@ -5,11 +5,11 @@ NewsTop20 is a sleek and user-friendly news application designed to provide user
 import streamlit as st
 import requests
 
-
+# Constants
 API_KEY = '1601a3deef304678bc83f51009951aba'
 BASE_URL = 'https://newsapi.org/v2/top-headlines'
 
-
+# Function to fetch news data
 def fetch_news(country='us', topic=''):
     try:
         url = f"{BASE_URL}?country={country}&q={topic}&apiKey={API_KEY}"
@@ -27,12 +27,12 @@ def fetch_news(country='us', topic=''):
         st.error(f"An error occurred while fetching news: {e}")
         return []
 
-
+# Streamlit app
 def main():
     st.title("News App")
     st.write("Top 20 news headlines by country or topic")
 
-    country = st.selectbox("Select Country", ['us', 'uk', 'in', 'ca', 'au', 'de'])
+    country = st.selectbox("Select Country", ['us', 'uk', 'in', 'ca', 'au', 'de','ar','ae','at','be','bg','br','ca','cn','co','cu','cz','dk','ee','es' ,'fr','gr','hk','hu','id','ie','il','it','jp','kr','lt' ,'lv','my','mx','ng','nl','no','nz','ph','pl','pt','ro',])
     topic = st.text_input("Enter Topic")
 
     if st.button("Get News"):
